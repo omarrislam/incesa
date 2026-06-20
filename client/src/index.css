@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --color-incesa-blue: #0a2463;
+  --color-incesa-blue-dark: #061539;
+  --color-incesa-blue-mid: #1e3a5f;
+  --color-incesa-accent: #3e92cc;
+  --color-incesa-accent-light: #7ec8e3;
+  --color-incesa-light: #f0f4ff;
+  --color-incesa-hero: #060e2e;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white dark:bg-gray-950 text-slate-800 dark:text-slate-200;
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .section-py {
+    @apply py-16 md:py-24;
+  }
+
+  .container-padded {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .grid-dots-dark {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .grid-dots-light {
+    background-image: radial-gradient(circle, rgba(10,36,99,0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Ken Burns effect for hero background image */
+@keyframes kenBurns {
+  0%   { transform: scale(1)    translate(0, 0); }
+  25%  { transform: scale(1.06) translate(-1%, 0.5%); }
+  50%  { transform: scale(1.1)  translate(1%, -0.8%); }
+  75%  { transform: scale(1.05) translate(-0.5%, 1%); }
+  100% { transform: scale(1)    translate(0, 0); }
+}
+.hero-kenburns {
+  animation: kenBurns 28s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Marquee / infinite scroll strip */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Floating particle dots for hero */
+@keyframes floatUp {
+  0%   { transform: translateY(0)   opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}
+
+/* Counter number animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.count-anim {
+  animation: countUp 0.6s ease-out forwards;
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.skeleton-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+

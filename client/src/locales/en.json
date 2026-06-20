@@ -1,0 +1,179 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "aboutMission": "Mission & Values",
+    "aboutHistory": "Our History",
+    "research": "Research Centers",
+    "researchOverview": "Research Overview",
+    "researchLabs": "Laboratories",
+    "researchProjects": "Projects",
+    "partners": "Partners",
+    "ctt": "CTT",
+    "careers": "Careers",
+    "contact": "Contact",
+    "langLabel": "RO",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "badge": "Applied Research Hub",
+    "headline1": "Where Science Meets",
+    "headline2": "Real-World Solutions",
+    "subtitle": "Romania's largest applied research organization — 21 specialized laboratories across 6 research centers, bridging academia and industry since 2015.",
+    "cta1": "Explore Research",
+    "cta2": "Get in Touch"
+  },
+  "stats": {
+    "labs": "Laboratories",
+    "researchers": "Researchers",
+    "centers": "Research Centers",
+    "founded": "Founded"
+  },
+  "about": {
+    "badge": "About INCESA",
+    "sectionTitle": "Advancing Science. Driving Innovation.",
+    "missionLabel": "Our Mission",
+    "missionHeadline": "Innovation Through Multidisciplinary Science",
+    "mission": "INCESA is one of Romania's most significant applied research organizations, established in 2015 at the University of Craiova. We unite researchers from diverse scientific domains to tackle complex, real-world challenges through collaborative, applied science.",
+    "body": "Our multidisciplinary approach spans electrical engineering, biotechnology, computer science, material science, and social sciences — enabling solutions that no single discipline can achieve alone.",
+    "pillarsLabel": "Core Pillars",
+    "pillars": [
+      "Multidisciplinary research",
+      "Industry collaboration",
+      "International partnerships",
+      "Innovation-driven culture",
+      "Applied science focus",
+      "Societal impact"
+    ],
+    "visionLabel": "Our Vision",
+    "visionHeadline": "Toward a Science-Driven Future",
+    "vision": "Our vision is to become a European reference center for multidisciplinary applied research, contributing to a more sustainable and innovative society by connecting knowledge with action.",
+    "valuesLabel": "Our Values",
+    "valuesHeadline": "What Defines Us",
+    "historyLabel": "Our History",
+    "historyHeadline": "A Decade of Innovation",
+    "historyItems": [
+      { "year": "2015", "text": "INCESA founded in Craiova with an initial team of researchers and a clear applied-science mission." },
+      { "year": "2017", "text": "Expansion to 15 laboratories across 5 core research domains, strengthening multidisciplinary capacity." },
+      { "year": "2019", "text": "Launch of CTT INCESA — Technology Transfer Center — bridging research and industry." },
+      { "year": "2025+", "text": "Over 21 laboratories, 100+ researchers, and an expanding international partnership network." }
+    ],
+    "values": [
+      { "icon": "FlaskConical", "title": "Scientific Rigor", "desc": "All research meets the highest academic and industry standards for quality and reproducibility." },
+      { "icon": "Users", "title": "Collaboration", "desc": "We work across disciplines and borders, bridging academia, industry, and government." },
+      { "icon": "Globe", "title": "Global Reach", "desc": "Active international partnerships bring global perspectives to local challenges." },
+      { "icon": "Award", "title": "Excellence", "desc": "Recognized nationally and internationally for applied research impact and innovation." }
+    ],
+    "scopeLabel": "Scope of Activity",
+    "scopeHeadline": "What INCESA Does",
+    "scopeIntro": "INCESA organizes and carries out a broad range of activities spanning fundamental research, applied innovation, technology transfer, education, advisory services, and scientific communication."
+  },
+  "research": {
+    "badge": "Research Centers",
+    "title": "Six Centers. Twenty-One Labs.",
+    "subtitle": "Organized into six specialized research centers, INCESA's 21 laboratories drive innovation across the full spectrum of applied science.",
+    "heroLabel": "Research at INCESA",
+    "centersTitle": "Research Centers",
+    "labsTitle": "Laboratories",
+    "labsSubtitle": "Browse all 21 specialized laboratories organized by research center.",
+    "projectsTitle": "Research Projects",
+    "projectsSubtitle": "Active, completed, and upcoming research projects across all domains.",
+    "labsIn": "Laboratories in"
+  },
+  "partners": {
+    "badge": "Partners & Collaboration",
+    "title": "Our Partner Network",
+    "subtitle": "Collaborating with universities, industry leaders, government bodies, and international networks.",
+    "typesLabel": "Collaboration Types",
+    "ctaTitle": "Become an INCESA Partner",
+    "ctaText": "We are open to academic, industrial, and governmental collaborations. Contact us to explore joint research opportunities.",
+    "ctaButton": "Get in Touch"
+  },
+  "ctt": {
+    "badge": "Technology Transfer",
+    "title": "CTT INCESA",
+    "subtitle": "Bridging the gap between applied research and real-world industry applications through knowledge transfer, consulting, and strategic partnerships.",
+    "servicesLabel": "Our Services",
+    "services": [
+      { "icon": "Microscope", "title": "Technology Transfer", "desc": "Facilitating the transfer of research results to industry and market." },
+      { "icon": "BookOpen", "title": "Consulting & Expertise", "desc": "Technical consulting and expert assessments for industry partners." },
+      { "icon": "GraduationCap", "title": "Training & Education", "desc": "Professional development programs and specialized training courses." },
+      { "icon": "Link", "title": "Industry Partnerships", "desc": "Building strategic partnerships with companies and research institutions." }
+    ],
+    "ctaTitle": "Ready to Collaborate?",
+    "ctaText": "CTT INCESA connects your organization with the research expertise of 100+ scientists. Let's explore what we can build together.",
+    "ctaButton": "Contact CTT"
+  },
+  "jobs": {
+    "badge": "Careers",
+    "title": "Join INCESA",
+    "subtitle": "Help shape the future of applied research. We are always looking for talented researchers, engineers, and scientists.",
+    "openPositions": "Open Positions",
+    "noOpenings": "No current openings",
+    "apply": "Apply Now",
+    "whyTitle": "Why INCESA?",
+    "whyItems": [
+      { "icon": "Microscope", "title": "Cutting-Edge Research", "desc": "Work on nationally and internationally funded research projects with real-world impact." },
+      { "icon": "Users", "title": "Collaborative Culture", "desc": "Collaborate with 100+ researchers across 6 disciplines in an open, multidisciplinary environment." },
+      { "icon": "Globe", "title": "International Exposure", "desc": "Engage with EU and international research networks, conferences, and partnerships." },
+      { "icon": "GraduationCap", "title": "Career Growth", "desc": "Access to professional development, PhD programs, and continuous learning opportunities." }
+    ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Get in Touch",
+    "subtitle": "Reach out to INCESA for research collaboration, partnership opportunities, or general inquiries.",
+    "address": "Address",
+    "addressValue": "University of Craiova, Str. A. I. Cuza nr. 13, 200585 Craiova, Romania",
+    "phone": "Phone",
+    "email": "Email",
+    "emailValue": "contact@incesa.ro",
+    "officeHours": "Office Hours",
+    "officeHoursValue": "Monday – Friday, 08:00 – 16:00",
+    "mapLabel": "Find Us",
+    "socialLabel": "Follow Us"
+  },
+  "cookie": {
+    "banner": "We use cookies to ensure you get the best experience on our website.",
+    "learnMore": "Learn more",
+    "accept": "Accept",
+    "decline": "Decline",
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: June 2025"
+  },
+  "footer": {
+    "tagline": "Romania's applied research hub — bridging science and society since 2015.",
+    "quickLinks": "Quick Links",
+    "research": "Research",
+    "legal": "Legal",
+    "cookiePolicy": "Cookie Policy",
+    "rights": "All rights reserved."
+  },
+  "status": {
+    "ongoing": "Ongoing",
+    "completed": "Completed",
+    "upcoming": "Upcoming"
+  },
+  "home": {
+    "whoWeAre": "Who We Are",
+    "whoHeadline": "A Hub Where Science Meets Real-World Solutions",
+    "whoText1": "Founded in 2015 at the University of Craiova, INCESA brings together over 100 researchers across 21 specialized laboratories and 6 research centers.",
+    "whoText2": "Our multidisciplinary model breaks silos — enabling electrical engineers, biotechnologists, computer scientists, and social researchers to collaborate on challenges that matter.",
+    "whoLink": "About INCESA",
+    "areasLabel": "Research Domains",
+    "areasHeadline": "Six Centers of Excellence",
+    "areasText": "Each center unites multiple specialized labs, enabling deep expertise and cross-disciplinary collaboration.",
+    "exploreCenter": "Explore",
+    "partnersLabel": "Collaboration",
+    "partnersHeadline": "Trusted by Leading Organizations",
+    "partnersText": "From EU Horizon Europe funding to industry partnerships with global companies, INCESA connects research with impact.",
+    "ctaTitle": "Ready to Collaborate?",
+    "ctaText": "Whether you are a researcher, company, or government body — there is a way to work with INCESA.",
+    "ctaResearch": "Explore Research",
+    "ctaPartner": "Become a Partner",
+    "ctaJoin": "Join Our Team",
+    "statsCard": "A hub where science meets real-world solutions",
+    "learnMore": "Learn more"
+  }
+}

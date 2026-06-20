@@ -1,0 +1,179 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "about": "Despre",
+    "aboutMission": "Misiune și Valori",
+    "aboutHistory": "Istoria Noastră",
+    "research": "Centre de Cercetare",
+    "researchOverview": "Prezentare Generală",
+    "researchLabs": "Laboratoare",
+    "researchProjects": "Proiecte",
+    "partners": "Parteneri",
+    "ctt": "CTT",
+    "careers": "Cariere",
+    "contact": "Contact",
+    "langLabel": "EN",
+    "openMenu": "Deschide meniu",
+    "closeMenu": "Închide meniu"
+  },
+  "hero": {
+    "badge": "Hub de Cercetare Aplicată",
+    "headline1": "Unde Știința Întâlnește",
+    "headline2": "Soluțiile Reale",
+    "subtitle": "Cea mai mare organizație de cercetare aplicată din România — 21 de laboratoare specializate în 6 centre de cercetare, conectând academia cu industria din 2015.",
+    "cta1": "Explorează Cercetarea",
+    "cta2": "Contactează-ne"
+  },
+  "stats": {
+    "labs": "Laboratoare",
+    "researchers": "Cercetători",
+    "centers": "Centre de Cercetare",
+    "founded": "Fondată"
+  },
+  "about": {
+    "badge": "Despre INCESA",
+    "sectionTitle": "Avansăm Știința. Generăm Inovație.",
+    "missionLabel": "Misiunea Noastră",
+    "missionHeadline": "Inovație prin Știință Multidisciplinară",
+    "mission": "INCESA este una dintre cele mai importante organizații de cercetare aplicată din România, înființată în 2015 la Universitatea din Craiova. Reunim cercetători din domenii științifice diverse pentru a aborda provocări complexe, reale, prin știință colaborativă aplicată.",
+    "body": "Abordarea noastră multidisciplinară acoperă ingineria electrică, biotehnologia, informatica, știința materialelor și științele sociale — permițând soluții pe care nicio disciplină singură nu le poate realiza.",
+    "pillarsLabel": "Piloni Principali",
+    "pillars": [
+      "Cercetare multidisciplinară",
+      "Colaborare cu industria",
+      "Parteneriate internaționale",
+      "Cultură orientată spre inovație",
+      "Accent pe știința aplicată",
+      "Impact social"
+    ],
+    "visionLabel": "Viziunea Noastră",
+    "visionHeadline": "Spre un Viitor Bazat pe Știință",
+    "vision": "Viziunea noastră este să devenim un centru de referință european pentru cercetarea aplicată multidisciplinară, contribuind la o societate mai durabilă și mai inovatoare, prin conectarea cunoașterii cu acțiunea.",
+    "valuesLabel": "Valorile Noastre",
+    "valuesHeadline": "Ce Ne Definește",
+    "historyLabel": "Istoria Noastră",
+    "historyHeadline": "Un Deceniu de Inovație",
+    "historyItems": [
+      { "year": "2015", "text": "INCESA fondată în Craiova cu o echipă inițială de cercetători și o misiune clară de știință aplicată." },
+      { "year": "2017", "text": "Extindere la 15 laboratoare în 5 domenii principale de cercetare, consolidând capacitatea multidisciplinară." },
+      { "year": "2019", "text": "Lansarea CTT INCESA — Centrul de Transfer Tehnologic — conectând cercetarea cu industria." },
+      { "year": "2025+", "text": "Peste 21 de laboratoare, 100+ cercetători și o rețea internațională de parteneriate în expansiune." }
+    ],
+    "values": [
+      { "icon": "FlaskConical", "title": "Rigoare Științifică", "desc": "Toată cercetarea respectă cele mai înalte standarde academice și industriale de calitate." },
+      { "icon": "Users", "title": "Colaborare", "desc": "Lucrăm interdisciplinar și transfrontalier, conectând academia, industria și guvernul." },
+      { "icon": "Globe", "title": "Acoperire Globală", "desc": "Parteneriatele internaționale active aduc perspective globale la provocările locale." },
+      { "icon": "Award", "title": "Excelență", "desc": "Recunoscuți la nivel național și internațional pentru impact și inovație în cercetare aplicată." }
+    ],
+    "scopeLabel": "Domenii de Activitate",
+    "scopeHeadline": "Ce Face INCESA",
+    "scopeIntro": "INCESA organizează și desfășoară o gamă largă de activități — de la cercetare fundamentală și inovare aplicată, la transfer tehnologic, educație, consultanță și comunicare științifică."
+  },
+  "research": {
+    "badge": "Centre de Cercetare",
+    "title": "Șase Centre. Douăzeci și Unu de Laboratoare.",
+    "subtitle": "Organizate în șase centre de cercetare specializate, cele 21 de laboratoare ale INCESA conduc inovația în toată gama științei aplicate.",
+    "heroLabel": "Cercetare la INCESA",
+    "centersTitle": "Centre de Cercetare",
+    "labsTitle": "Laboratoare",
+    "labsSubtitle": "Răsfoiți cele 21 de laboratoare specializate organizate pe centre de cercetare.",
+    "projectsTitle": "Proiecte de Cercetare",
+    "projectsSubtitle": "Proiecte de cercetare active, finalizate și viitoare în toate domeniile.",
+    "labsIn": "Laboratoare în"
+  },
+  "partners": {
+    "badge": "Parteneri și Colaborare",
+    "title": "Rețeaua Noastră de Parteneri",
+    "subtitle": "Colaborând cu universități, lideri industriali, instituții guvernamentale și rețele internaționale.",
+    "typesLabel": "Tipuri de Colaborare",
+    "ctaTitle": "Deveniți Partener INCESA",
+    "ctaText": "Suntem deschiși colaborărilor academice, industriale și guvernamentale. Contactați-ne pentru a explora oportunități comune de cercetare.",
+    "ctaButton": "Contactați-ne"
+  },
+  "ctt": {
+    "badge": "Transfer Tehnologic",
+    "title": "CTT INCESA",
+    "subtitle": "Închiderea decalajului dintre cercetarea aplicată și aplicațiile industriale reale prin transfer de cunoștințe, consultanță și parteneriate strategice.",
+    "servicesLabel": "Serviciile Noastre",
+    "services": [
+      { "icon": "Microscope", "title": "Transfer Tehnologic", "desc": "Facilitarea transferului rezultatelor cercetării către industrie și piață." },
+      { "icon": "BookOpen", "title": "Consultanță și Expertiză", "desc": "Consultanță tehnică și evaluări de expertiză pentru parteneri industriali." },
+      { "icon": "GraduationCap", "title": "Training și Educație", "desc": "Programe de dezvoltare profesională și cursuri de formare specializată." },
+      { "icon": "Link", "title": "Parteneriate Industriale", "desc": "Construirea de parteneriate strategice cu companii și instituții de cercetare." }
+    ],
+    "ctaTitle": "Pregătit să Colaborați?",
+    "ctaText": "CTT INCESA conectează organizația dvs. cu expertiza de cercetare a 100+ oameni de știință. Hai să explorăm ce putem construi împreună.",
+    "ctaButton": "Contactați CTT"
+  },
+  "jobs": {
+    "badge": "Cariere",
+    "title": "Alăturați-vă INCESA",
+    "subtitle": "Ajutați la modelarea viitorului cercetării aplicate. Suntem mereu în căutare de cercetători, ingineri și oameni de știință talentați.",
+    "openPositions": "Poziții Deschise",
+    "noOpenings": "Nicio poziție disponibilă momentan",
+    "apply": "Aplicați Acum",
+    "whyTitle": "De ce INCESA?",
+    "whyItems": [
+      { "icon": "Microscope", "title": "Cercetare de Vârf", "desc": "Lucrați la proiecte de cercetare finanțate național și internațional cu impact real." },
+      { "icon": "Users", "title": "Cultură Colaborativă", "desc": "Colaborați cu 100+ cercetători din 6 discipline într-un mediu multidisciplinar deschis." },
+      { "icon": "Globe", "title": "Expunere Internațională", "desc": "Implicați-vă în rețele internaționale de cercetare, conferințe și parteneriate." },
+      { "icon": "GraduationCap", "title": "Creștere Profesională", "desc": "Acces la dezvoltare profesională, programe de doctorat și oportunități de învățare continuă." }
+    ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Luați Legătura",
+    "subtitle": "Contactați INCESA pentru colaborări de cercetare, oportunități de parteneriat sau întrebări generale.",
+    "address": "Adresă",
+    "addressValue": "Universitatea din Craiova, Str. A. I. Cuza nr. 13, 200585 Craiova, România",
+    "phone": "Telefon",
+    "email": "Email",
+    "emailValue": "contact@incesa.ro",
+    "officeHours": "Program",
+    "officeHoursValue": "Luni – Vineri, 08:00 – 16:00",
+    "mapLabel": "Găsiți-ne",
+    "socialLabel": "Urmăriți-ne"
+  },
+  "cookie": {
+    "banner": "Folosim cookie-uri pentru a vă oferi cea mai bună experiență pe site-ul nostru.",
+    "learnMore": "Aflați mai multe",
+    "accept": "Accept",
+    "decline": "Refuz",
+    "title": "Politica de Cookies",
+    "lastUpdated": "Ultima actualizare: Iunie 2025"
+  },
+  "footer": {
+    "tagline": "Hub-ul de cercetare aplicată al României — conectând știința și societatea din 2015.",
+    "quickLinks": "Linkuri Rapide",
+    "research": "Cercetare",
+    "legal": "Legal",
+    "cookiePolicy": "Politica de Cookies",
+    "rights": "Toate drepturile rezervate."
+  },
+  "status": {
+    "ongoing": "În desfășurare",
+    "completed": "Finalizat",
+    "upcoming": "Viitor"
+  },
+  "home": {
+    "whoWeAre": "Cine Suntem",
+    "whoHeadline": "Un Hub unde Știința Întâlnește Soluțiile Reale",
+    "whoText1": "Fondată în 2015 la Universitatea din Craiova, INCESA reunește peste 100 de cercetători în 21 de laboratoare specializate și 6 centre de cercetare.",
+    "whoText2": "Modelul nostru multidisciplinar elimină barierele — permițând inginerilor electrici, biotehnologilor, informaticienilor și cercetătorilor sociali să colaboreze la provocările care contează.",
+    "whoLink": "Despre INCESA",
+    "areasLabel": "Domenii de Cercetare",
+    "areasHeadline": "Șase Centre de Excelență",
+    "areasText": "Fiecare centru unește mai multe laboratoare specializate, permițând expertiză aprofundată și colaborare interdisciplinară.",
+    "exploreCenter": "Explorează",
+    "partnersLabel": "Colaborare",
+    "partnersHeadline": "Apreciat de Organizații Lider",
+    "partnersText": "De la finanțări EU Horizon Europe la parteneriate industriale cu companii globale, INCESA conectează cercetarea cu impactul.",
+    "ctaTitle": "Gata să Colaborați?",
+    "ctaText": "Fie că ești cercetător, companie sau instituție guvernamentală — există o modalitate de a lucra cu INCESA.",
+    "ctaResearch": "Explorează Cercetarea",
+    "ctaPartner": "Devino Partener",
+    "ctaJoin": "Alătură-te Echipei",
+    "statsCard": "Un hub unde știința întâlnește soluțiile reale",
+    "learnMore": "Află mai mult"
+  }
+}
