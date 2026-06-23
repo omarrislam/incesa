@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion'
-import { Menu, X, Sun, Moon, ChevronDown, Zap, Cog, FlaskConical, Cpu, Users, Building2 } from 'lucide-react'
+import { Menu, X, Sun, Moon, ChevronDown, Zap, Cog, FlaskConical, Cpu, Users, Building2, FlaskConical as LabIcon } from 'lucide-react'
 import { useTheme } from '../../contexts/ThemeContext'
 import { RESEARCH_CENTERS } from '../../data/labs'
 
@@ -13,82 +13,154 @@ function isActive(href, location) {
   return location.pathname.startsWith(href.split('#')[0])
 }
 
+/* ── Two-panel mega dropdown ─────────────────────────────── */
 function MegaDropdown({ onClose }) {
   const { t, i18n } = useTranslation()
   const isRo = i18n.language === 'ro'
+  const [hoveredCenter, setHoveredCenter] = useState(RESEARCH_CENTERS[0])
+
+  const labs = hoveredCenter?.labs ?? []
+  const centerAccent = hoveredCenter?.accentHex ?? '#3e92cc'
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -8, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -8, scale: 0.98 }}
       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 z-[1100] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-gray-800 p-4 min-w-[520px]"
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 z-[1100] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-gray-800 overflow-hidden"
+      style={{ minWidth: '660px' }}
     >
-      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-incesa-accent px-2 mb-3">
-        {t('nav.research')}
-      </p>
-      <div className="grid grid-cols-2 gap-1">
-        {RESEARCH_CENTERS.map(center => {
-          const Icon = CENTER_ICONS[center.icon] ?? FlaskConical
-          const name = isRo ? center.ro.name : center.en.name
-          const abbr = isRo ? center.ro.abbr : center.en.abbr
-          return (
-            <Link
-              key={center.slug}
-              to={`/research/${center.slug}`}
-              onClick={onClose}
-              className="flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-incesa-light dark:hover:bg-gray-800 hover:text-incesa-blue dark:hover:text-incesa-accent-light transition-colors group"
+      <div className="flex">
+        {/* Left panel: centers */}
+        <div className="w-56 border-r border-slate-100 dark:border-gray-800 py-3 flex-shrink-0">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-incesa-accent px-4 mb-2">
+            {t('nav.research')}
+          </p>
+          {RESEARCH_CENTERS.map(center => {
+            const Icon = CENTER_ICONS[center.icon] ?? FlaskConical
+            const name = isRo ? center.ro.name : center.en.name
+            const abbr = isRo ? center.ro.abbr : center.en.abbr
+            const isHovered = hoveredCenter?.slug === center.slug
+            return (
+              <div
+                key={center.slug}
+                onMouseEnter={() => setHoveredCenter(center)}
+                className={`flex items-center gap-2.5 px-3 py-2.5 mx-1 rounded-xl cursor-pointer transition-colors group ${
+                  isHovered
+                    ? 'bg-incesa-light dark:bg-gray-800'
+                    : 'hover:bg-incesa-light dark:hover:bg-gray-800'
+                }`}
+              >
+                <span
+                  className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors"
+                  style={{ background: isHovered ? `${center.accentHex}25` : undefined }}
+                >
+                  <Icon
+                    className="w-3.5 h-3.5 transition-colors"
+                    style={{ color: isHovered ? center.accentHex : undefined }}
+                  />
+                </span>
+                <div className="min-w-0">
+                  <p className={`text-xs font-semibold leading-snug truncate transition-colors ${isHovered ? 'text-incesa-blue dark:text-white' : 'text-slate-600 dark:text-slate-300'}`}>
+                    {abbr}
+                  </p>
+                </div>
+                <ChevronDown className="w-3 h-3 -rotate-90 text-slate-300 dark:text-slate-600 ml-auto flex-shrink-0" />
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Right panel: labs for hovered center */}
+        <div className="flex-1 py-3 px-4 min-w-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={hoveredCenter?.slug}
+              initial={{ opacity: 0, x: 8 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -8 }}
+              transition={{ duration: 0.18, ease: 'easeOut' }}
             >
-              <span className="w-8 h-8 rounded-lg bg-incesa-accent/10 dark:bg-incesa-accent/20 flex items-center justify-center flex-shrink-0 group-hover:bg-incesa-accent/20 transition-colors">
-                <Icon className="w-3.5 h-3.5 text-incesa-accent" />
-              </span>
-              <span className="leading-snug">
-                <span className="block">{name}</span>
-                <span className="text-xs text-slate-400 dark:text-slate-500 font-normal">{abbr}</span>
-              </span>
-            </Link>
-          )
-        })}
-      </div>
-      {/* Featured project */}
-      <div className="mt-3 pt-3 border-t border-slate-100 dark:border-gray-800 mb-2">
-        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 dark:text-slate-600 px-2 mb-1.5">
-          {isRo ? 'Proiect Activ' : 'Active Project'}
-        </p>
-        <Link
-          to="/simira"
-          onClick={onClose}
-          className="flex items-center gap-3 px-3 py-2 rounded-xl bg-emerald-500/8 border border-emerald-500/20 hover:bg-emerald-500/15 transition-colors group"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
-          <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400 group-hover:text-emerald-500">SIMIRA</span>
-          <span className="text-xs text-slate-400 dark:text-slate-500">
-            {isRo ? 'Cercetare Aplicată Interdisciplinară' : 'Interdisciplinary Applied Research'}
-          </span>
-        </Link>
+              {/* Center header */}
+              <div className="flex items-center justify-between mb-2.5">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] mb-0.5" style={{ color: centerAccent }}>
+                    {isRo ? hoveredCenter?.ro?.abbr : hoveredCenter?.en?.abbr}
+                  </p>
+                  <Link
+                    to={`/research/${hoveredCenter?.slug}`}
+                    onClick={onClose}
+                    className="text-sm font-bold text-incesa-blue dark:text-white hover:text-incesa-accent dark:hover:text-incesa-accent transition-colors leading-snug"
+                  >
+                    {isRo ? hoveredCenter?.ro?.name : hoveredCenter?.en?.name}
+                  </Link>
+                </div>
+                <Link
+                  to={`/research/${hoveredCenter?.slug}`}
+                  onClick={onClose}
+                  className="text-[11px] font-semibold px-2.5 py-1 rounded-lg border transition-colors hover:bg-incesa-light dark:hover:bg-gray-800"
+                  style={{ color: centerAccent, borderColor: `${centerAccent}35` }}
+                >
+                  {isRo ? 'Centrul →' : 'Center →'}
+                </Link>
+              </div>
+
+              {/* Labs list */}
+              <div className="space-y-0.5">
+                {labs.map(lab => {
+                  const labName = isRo ? lab.ro.name : lab.en.name
+                  return (
+                    <Link
+                      key={lab.slug}
+                      to={`/research/${hoveredCenter?.slug}/labs/${lab.slug}`}
+                      onClick={onClose}
+                      className="flex items-start gap-2.5 px-2.5 py-2 rounded-xl text-xs text-slate-600 dark:text-slate-400 hover:bg-incesa-light dark:hover:bg-gray-800 hover:text-incesa-blue dark:hover:text-white transition-colors group"
+                    >
+                      <span
+                        className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"
+                        style={{ background: centerAccent }}
+                      />
+                      <span className="leading-snug line-clamp-2">{labName}</span>
+                    </Link>
+                  )
+                })}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
-      <div className="pt-2 border-t border-slate-100 dark:border-gray-800 flex gap-1">
+      {/* Bottom bar */}
+      <div className="border-t border-slate-100 dark:border-gray-800 px-3 py-2 flex gap-1">
         <Link
           to="/research"
           onClick={onClose}
-          className="flex-1 text-center px-2 py-2 rounded-xl text-xs font-semibold text-incesa-accent hover:bg-incesa-light dark:hover:bg-gray-800 transition-colors"
+          className="flex-1 text-center px-2 py-1.5 rounded-xl text-xs font-semibold text-incesa-accent hover:bg-incesa-light dark:hover:bg-gray-800 transition-colors"
         >
-          {isRo ? 'Prezentare' : 'Overview'}
+          {isRo ? 'Prezentare Generală' : 'Overview'}
         </Link>
         <Link
           to="/research/labs"
           onClick={onClose}
-          className="flex-1 text-center px-2 py-2 rounded-xl text-xs font-semibold text-incesa-accent hover:bg-incesa-light dark:hover:bg-gray-800 transition-colors"
+          className="flex-1 text-center px-2 py-1.5 rounded-xl text-xs font-semibold text-incesa-accent hover:bg-incesa-light dark:hover:bg-gray-800 transition-colors"
         >
-          {isRo ? 'Laboratoare' : 'Laboratories'}
+          {isRo ? 'Toate Laboratoarele' : 'All Labs'}
         </Link>
         <Link
           to="/research/projects"
           onClick={onClose}
-          className="flex-1 text-center px-2 py-2 rounded-xl text-xs font-semibold text-incesa-accent hover:bg-incesa-light dark:hover:bg-gray-800 transition-colors"
+          className="flex-1 text-center px-2 py-1.5 rounded-xl text-xs font-semibold text-incesa-accent hover:bg-incesa-light dark:hover:bg-gray-800 transition-colors"
         >
           {isRo ? 'Proiecte' : 'Projects'}
+        </Link>
+        <Link
+          to="/simira"
+          onClick={onClose}
+          className="flex-1 text-center px-2 py-1.5 rounded-xl text-xs font-bold text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors inline-flex items-center justify-center gap-1"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          SIMIRA
         </Link>
       </div>
     </motion.div>
@@ -101,7 +173,7 @@ const NAV_ITEMS = [
   { key: 'nav.research', href: '/research', mega: true },
   { key: 'nav.ctt', href: '/ctt' },
   { key: 'nav.partners', href: '/partners' },
-  { key: 'nav.careers', href: '/jobs' },
+  { key: 'nav.news', href: '/news' },
   { key: 'nav.contact', href: '/contact' },
 ]
 
@@ -170,6 +242,7 @@ export default function Navbar() {
   const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileResearchOpen, setMobileResearchOpen] = useState(false)
+  const [mobileCenterOpen, setMobileCenterOpen] = useState(null)
   const [scrolled, setScrolled] = useState(false)
   const { scrollY, scrollYProgress } = useScroll()
 
@@ -214,22 +287,8 @@ export default function Navbar() {
           aria-label="Main navigation"
         >
           {/* INCESA Logo */}
-          <Link to="/" className="flex-shrink-0 group">
-            <img
-              src="https://www.incesa.ro/wp-content/uploads/2025/02/cropped-Logo_INCESA_HUB_cdr12.png"
-              alt="INCESA"
-              className="h-10 w-auto object-contain brightness-200"
-              onError={e => {
-                e.target.style.display = 'none'
-                e.target.nextSibling.style.display = 'flex'
-              }}
-            />
-            <div className="hidden items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-white/15 border border-white/20 flex items-center justify-center">
-                <span className="font-heading font-black text-white text-sm">I</span>
-              </div>
-              <span className="font-heading font-bold text-white text-lg tracking-tight">INCESA</span>
-            </div>
+          <Link to="/" className="flex-shrink-0 group flex items-center gap-2.5">
+            <img src="/images/incesa-logo-web.svg" alt="INCESA" style={{ height: '36px', width: 'auto' }} />
           </Link>
 
           {/* Desktop nav */}
@@ -304,12 +363,9 @@ export default function Navbar() {
               aria-modal="true"
             >
               <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-white/10">
-                <img
-                  src="https://www.incesa.ro/wp-content/uploads/2025/02/cropped-Logo_INCESA_HUB_cdr12.png"
-                  alt="INCESA"
-                  className="h-9 w-auto object-contain brightness-200"
-                  onError={e => { e.target.style.display = 'none' }}
-                />
+                <div className="flex items-center gap-2">
+                  <img src="/images/incesa-logo-web.svg" alt="INCESA" style={{ height: '28px', width: 'auto' }} />
+                </div>
                 <button onClick={() => setMobileOpen(false)} className="text-white/80 hover:text-white cursor-pointer" aria-label={t('nav.closeMenu')}>
                   <X size={24} />
                 </button>
@@ -356,16 +412,56 @@ export default function Navbar() {
                             {RESEARCH_CENTERS.map(center => {
                               const Icon = CENTER_ICONS[center.icon] ?? FlaskConical
                               const name = isRo ? center.ro.name : center.en.name
+                              const isCenterOpen = mobileCenterOpen === center.slug
                               return (
-                                <Link
-                                  key={center.slug}
-                                  to={`/research/${center.slug}`}
-                                  onClick={() => setMobileOpen(false)}
-                                  className="flex items-center gap-2.5 px-3 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
-                                >
-                                  <Icon className="w-3.5 h-3.5 text-incesa-accent-light flex-shrink-0" />
-                                  {name}
-                                </Link>
+                                <div key={center.slug}>
+                                  <div className="flex items-center">
+                                    <Link
+                                      to={`/research/${center.slug}`}
+                                      onClick={() => setMobileOpen(false)}
+                                      className="flex-1 flex items-center gap-2.5 px-3 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                                    >
+                                      <Icon className="w-3.5 h-3.5 text-incesa-accent-light flex-shrink-0" />
+                                      {name}
+                                    </Link>
+                                    {center.labs.length > 0 && (
+                                      <button
+                                        onClick={() => setMobileCenterOpen(isCenterOpen ? null : center.slug)}
+                                        className="p-2 text-white/40 hover:text-white/70 cursor-pointer"
+                                      >
+                                        <motion.span animate={{ rotate: isCenterOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                                          <ChevronDown className="w-3.5 h-3.5" />
+                                        </motion.span>
+                                      </button>
+                                    )}
+                                  </div>
+                                  <AnimatePresence initial={false}>
+                                    {isCenterOpen && (
+                                      <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: 'auto', opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="overflow-hidden ml-4 pl-3 border-l border-white/10 space-y-0.5"
+                                      >
+                                        {center.labs.map(lab => {
+                                          const labName = isRo ? lab.ro.name : lab.en.name
+                                          return (
+                                            <Link
+                                              key={lab.slug}
+                                              to={`/research/${center.slug}/labs/${lab.slug}`}
+                                              onClick={() => setMobileOpen(false)}
+                                              className="flex items-start gap-2 px-3 py-2 text-xs text-white/55 hover:text-white/85 hover:bg-white/8 rounded-lg transition-colors"
+                                            >
+                                              <span className="w-1 h-1 rounded-full bg-white/40 mt-1.5 flex-shrink-0" />
+                                              <span className="leading-snug">{labName}</span>
+                                            </Link>
+                                          )
+                                        })}
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </div>
                               )
                             })}
                             <Link
@@ -374,7 +470,7 @@ export default function Navbar() {
                               className="flex items-center gap-2.5 px-3 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
                             >
                               <FlaskConical className="w-3.5 h-3.5 text-incesa-accent-light flex-shrink-0" />
-                              {isRo ? 'Laboratoare' : 'Laboratories'}
+                              {isRo ? 'Toate Laboratoarele' : 'All Laboratories'}
                             </Link>
                             <Link
                               to="/research/projects"

@@ -11,6 +11,7 @@
     "partners": "Partners",
     "ctt": "CTT",
     "careers": "Careers",
+    "news": "News",
     "contact": "Contact",
     "langLabel": "RO",
     "openMenu": "Open menu",
@@ -173,6 +174,7 @@
     "ctaResearch": "Explore Research",
     "ctaPartner": "Become a Partner",
     "ctaJoin": "Join Our Team",
+    "ctaNews": "Latest News",
     "statsCard": "A hub where science meets real-world solutions",
     "learnMore": "Learn more"
   }

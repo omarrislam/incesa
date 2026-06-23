@@ -55,7 +55,7 @@ export default function ResearchCenter() {
         {/* Circuit board background */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-15"
-          style={{ backgroundImage: 'url(https://www.incesa.ro/wp-content/uploads/2025/02/technologie-carte-circuit-imprime-binaire-arriere-plan-concept-bleu-cyber-securite_42077-58.jpg)' }}
+          style={{ backgroundImage: 'url(/images/circuit-bg.webp)' }}
           aria-hidden="true"
         />
 
@@ -184,8 +184,8 @@ export default function ResearchCenter() {
                   </span>
                   <ul className="space-y-3">
                     {center.labs.map((lab, i) => {
-                      const SUPPORT_HREFS = { l17: '/ctt', l18: '/support/training', l19: '/support/socio-economic', l20: '/support/communication', l21: '/support/consulting' }
-                      const href = center.slug === 'support-centers' ? SUPPORT_HREFS[lab.id] : null
+                      const labName = isRo ? lab.ro.name : lab.en.name
+                      const labHref = `/research/${center.slug}/labs/${lab.slug}`
                       const inner = (
                         <>
                           <span
@@ -195,11 +195,9 @@ export default function ResearchCenter() {
                             {i + 1}
                           </span>
                           <span className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed group-hover:text-incesa-blue dark:group-hover:text-white transition-colors flex-1">
-                            {isRo ? lab.ro : lab.en}
+                            {labName}
                           </span>
-                          {href && (
-                            <ChevronRight className="w-4 h-4 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: center.accentHex }} />
-                          )}
+                          <ChevronRight className="w-4 h-4 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: center.accentHex }} />
                         </>
                       )
                       return (
@@ -210,15 +208,9 @@ export default function ResearchCenter() {
                           viewport={{ once: true }}
                           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: i * 0.06 }}
                         >
-                          {href ? (
-                            <Link to={href} className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 dark:border-gray-800 bg-incesa-light dark:bg-gray-900 hover:border-incesa-accent/30 hover:bg-white dark:hover:bg-gray-800 hover:shadow-md transition-all group">
-                              {inner}
-                            </Link>
-                          ) : (
-                            <div className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 dark:border-gray-800 bg-incesa-light dark:bg-gray-900 hover:border-incesa-accent/30 transition-colors group">
-                              {inner}
-                            </div>
-                          )}
+                          <Link to={labHref} className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 dark:border-gray-800 bg-incesa-light dark:bg-gray-900 hover:border-incesa-accent/30 hover:bg-white dark:hover:bg-gray-800 hover:shadow-md transition-all group">
+                            {inner}
+                          </Link>
                         </motion.li>
                       )
                     })}

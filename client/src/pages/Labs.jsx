@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Zap, Cog, FlaskConical, Cpu, Users, Building2, ChevronDown, User, Mail, Quote } from 'lucide-react'
+import { Zap, Cog, FlaskConical, Cpu, Users, Building2, ChevronDown, User, Mail, Quote, ArrowRight } from 'lucide-react'
 import PageWrapper from '../components/layout/PageWrapper'
 import { RESEARCH_CENTERS } from '../data/labs'
 
@@ -69,7 +70,10 @@ function CenterAccordion({ center, isRo, t, defaultOpen }) {
                     transition={{ duration: 0.28, ease: 'easeOut', delay: i * 0.04 }}
                     className="px-6 py-4"
                   >
-                    <div className="flex items-start gap-3">
+                    <Link
+                      to={`/research/${center.slug}/labs/${lab.slug}`}
+                      className="flex items-start gap-3 group/lab"
+                    >
                       <span
                         className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold text-white"
                         style={{ background: center.accentHex }}
@@ -77,8 +81,8 @@ function CenterAccordion({ center, isRo, t, defaultOpen }) {
                         {i + 1}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-incesa-blue dark:text-white leading-snug">
-                          {isRo ? lab.ro : lab.en}
+                        <p className="text-sm font-semibold text-incesa-blue dark:text-white leading-snug group-hover/lab:underline" style={{ textDecorationColor: center.accentHex }}>
+                          {isRo ? lab.ro.name : lab.en.name}
                         </p>
 
                         {lab.mission && (
@@ -96,18 +100,17 @@ function CenterAccordion({ center, isRo, t, defaultOpen }) {
                               <User className="w-3 h-3 flex-shrink-0" />
                               {lab.head}
                             </span>
-                            <a
-                              href={`mailto:${lab.email}`}
-                              className="inline-flex items-center gap-1.5 text-xs hover:underline"
-                              style={{ color: center.accentHex }}
-                            >
-                              <Mail className="w-3 h-3 flex-shrink-0" />
-                              {lab.email}
-                            </a>
+                            {lab.email && (
+                              <span className="inline-flex items-center gap-1.5 text-xs" style={{ color: center.accentHex }}>
+                                <Mail className="w-3 h-3 flex-shrink-0" />
+                                {lab.email}
+                              </span>
+                            )}
                           </div>
                         )}
                       </div>
-                    </div>
+                      <ArrowRight className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-0 group-hover/lab:opacity-100 transition-opacity" style={{ color: center.accentHex }} />
+                    </Link>
                   </motion.li>
                 ))}
               </ul>

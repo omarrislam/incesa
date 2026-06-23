@@ -13,11 +13,12 @@ const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const Research = lazy(() => import('./pages/Research'))
 const ResearchCenter = lazy(() => import('./pages/ResearchCenter'))
+const LabDetail = lazy(() => import('./pages/LabDetail'))
 const Labs = lazy(() => import('./pages/Labs'))
 const Projects = lazy(() => import('./pages/Projects'))
 const Partners = lazy(() => import('./pages/Partners'))
 const CTT = lazy(() => import('./pages/CTT'))
-const Jobs = lazy(() => import('./pages/Jobs'))
+const News = lazy(() => import('./pages/News'))
 const Contact = lazy(() => import('./pages/Contact'))
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'))
 const Simira = lazy(() => import('./pages/Simira'))
@@ -33,12 +34,13 @@ function AnimatedRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/research" element={<Research />} />
-          <Route path="/research/:slug" element={<ResearchCenter />} />
           <Route path="/research/labs" element={<Labs />} />
           <Route path="/research/projects" element={<Projects />} />
+          <Route path="/research/:centerSlug/labs/:labSlug" element={<LabDetail />} />
+          <Route path="/research/:slug" element={<ResearchCenter />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/ctt" element={<CTT />} />
-          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/simira" element={<Simira />} />

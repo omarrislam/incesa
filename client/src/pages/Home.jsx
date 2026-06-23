@@ -178,13 +178,13 @@ export default function Home() {
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #060e2e 0%, #0a2463 60%, #1e3a5f 100%)' }}
       >
-        {/* Circuit board background with ken burns */}
+        {/* INCESA Research Hub background with ken burns */}
         <div className="absolute inset-0 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center hero-kenburns"
             style={{
-              backgroundImage: 'url(https://www.incesa.ro/wp-content/uploads/2025/02/technologie-carte-circuit-imprime-binaire-arriere-plan-concept-bleu-cyber-securite_42077-58.jpg)',
-              opacity: 0.18,
+              backgroundImage: 'url(/images/incesa-hub.webp)',
+              opacity: 0.28,
             }}
             aria-hidden="true"
           />
@@ -354,7 +354,7 @@ export default function Home() {
                 {/* Subtle circuit image overlay */}
                 <div
                   className="absolute inset-0 bg-cover bg-center opacity-10 rounded-3xl"
-                  style={{ backgroundImage: 'url(https://www.incesa.ro/wp-content/uploads/2025/02/technologie-carte-circuit-imprime-binaire-arriere-plan-concept-bleu-cyber-securite_42077-58.jpg)' }}
+                  style={{ backgroundImage: 'url(/images/circuit-bg.webp)' }}
                   aria-hidden="true"
                 />
                 <div className="relative z-10 p-8 h-80 flex flex-col justify-between">
@@ -504,11 +504,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── INCESA BUILDING PHOTO ─────────────────────────────── */}
+      {/* ── UNIVERSITY BUILDING PHOTO ─────────────────────────── */}
       <section className="relative h-64 sm:h-80 overflow-hidden">
         <img
-          src="https://www.incesa.ro/wp-content/uploads/2025/02/cropped-18699540_1861413067514346_9079615591852648926_o.jpg"
-          alt="INCESA Research Hub"
+          src="/images/craiova-university.webp"
+          alt="University of Craiova"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
@@ -519,9 +519,6 @@ export default function Home() {
         />
         <div className="relative h-full flex items-center container-padded">
           <FadeUp>
-            <p className="text-incesa-accent-light text-xs font-bold uppercase tracking-[0.2em] mb-2">
-              {isRo ? 'Sediu INCESA' : 'INCESA Headquarters'}
-            </p>
             <h3 className="font-heading font-bold text-white text-2xl sm:text-3xl max-w-md leading-tight">
               {isRo ? 'Universitatea din Craiova' : 'University of Craiova'}
             </h3>
@@ -557,8 +554,8 @@ export default function Home() {
                   <MotionButton to="/partners" variant="ghost" size="lg">
                     {t('home.ctaPartner')}
                   </MotionButton>
-                  <MotionButton to="/jobs" variant="ghost" size="lg">
-                    {t('home.ctaJoin')}
+                  <MotionButton to="/news" variant="ghost" size="lg">
+                    {t('home.ctaNews')}
                   </MotionButton>
                 </div>
               </FadeUp>

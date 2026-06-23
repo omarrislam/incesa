@@ -31,10 +31,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-white/15 border border-white/20 flex items-center justify-center">
-                <span className="font-heading font-black text-white text-sm">I</span>
-              </div>
-              <span className="font-heading font-bold text-white text-lg">INCESA</span>
+              <img src="/images/incesa-logo-web.svg" alt="INCESA" style={{ height: '40px', width: 'auto' }} />
             </div>
             <p className="text-white/60 text-sm leading-relaxed">{t('footer.tagline')}</p>
             <div className="flex items-center gap-3 mt-5">
@@ -68,7 +65,7 @@ export default function Footer() {
                 { label: t('nav.about'), href: '/about' },
                 { label: t('nav.partners'), href: '/partners' },
                 { label: t('nav.ctt'), href: '/ctt' },
-                { label: t('nav.careers'), href: '/jobs' },
+                { label: t('nav.news'), href: '/news' },
                 { label: t('nav.contact'), href: '/contact' },
               ].map(({ label, href }) => (
                 <li key={href}>
