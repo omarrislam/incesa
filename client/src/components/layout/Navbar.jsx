@@ -288,7 +288,11 @@ export default function Navbar() {
           aria-label="Main navigation"
         >
           {/* INCESA Logo */}
-          <Link to="/" className="flex-shrink-0 group flex items-center gap-2.5">
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex-shrink-0 group flex items-center gap-2.5"
+          >
             <img src="/images/incesa-logo-web.svg" alt="INCESA" style={{ height: '36px', width: 'auto' }} />
           </Link>
 
