@@ -2,7 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Mail, User, CheckCircle2, ArrowRight, FlaskConical, FolderOpen, Award, Users, Wrench, Sparkles } from 'lucide-react'
+import { ArrowLeft, Mail, User, CheckCircle2, ArrowRight, FlaskConical, FolderOpen, Award, Users, Wrench, Sparkles, Layers } from 'lucide-react'
 import PageWrapper from '../components/layout/PageWrapper'
 import MotionButton from '../components/ui/MotionButton'
 import { RESEARCH_CENTERS } from '../data/labs'
@@ -316,9 +316,15 @@ export default function LabDetail() {
                   <h3 className="font-heading font-bold text-incesa-blue dark:text-white text-lg mb-3">
                     {centerName}
                   </h3>
-                  <MotionButton to={`/research/${center.slug}`} variant="outline" size="sm">
-                    {isRo ? 'Vezi centrul de cercetare' : 'View research center'} <ArrowRight className="w-3.5 h-3.5" />
-                  </MotionButton>
+                  <div className="flex flex-wrap gap-2">
+                    <MotionButton to={`/research/${center.slug}`} variant="outline" size="sm">
+                      {isRo ? 'Vezi centrul de cercetare' : 'View research center'} <ArrowRight className="w-3.5 h-3.5" />
+                    </MotionButton>
+                    <MotionButton to={`/research/projects?lab=${labSlug}`} variant="outline" size="sm">
+                      <Layers className="w-3.5 h-3.5" />
+                      {isRo ? 'Proiectele laboratorului' : 'Lab projects'}
+                    </MotionButton>
+                  </div>
                 </div>
               </FadeUp>
             </div>

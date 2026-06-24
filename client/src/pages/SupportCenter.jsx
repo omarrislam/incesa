@@ -449,7 +449,7 @@ export default function SupportCenter() {
                           className="group block rounded-xl overflow-hidden border border-slate-100 dark:border-gray-800 hover:border-slate-300 dark:hover:border-gray-600 hover:shadow-md transition-all relative"
                         >
                           <div className="aspect-[4/3] bg-slate-50 dark:bg-gray-900">
-                            <img src={photo.src} alt={photo.label} className="w-full h-full object-contain" />
+                            <img src={photo.src} alt={photo.label} className="w-full h-full object-contain" loading="lazy" />
                           </div>
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                             <ExternalLink className="w-5 h-5 text-white drop-shadow-lg" />

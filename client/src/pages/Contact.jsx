@@ -38,7 +38,7 @@ const CONTACT_ITEMS = [
     Icon: MapPin,
     labelKey: 'contact.address',
     valueKey: 'contact.addressValue',
-    href: 'https://maps.google.com/?q=University+of+Craiova',
+    href: 'https://maps.app.goo.gl/YKcVAXKwDfGEwdf1A',
     isLink: true,
   },
   {
@@ -181,7 +181,7 @@ export default function Contact() {
                     loading="lazy"
                     allowFullScreen
                     referrerPolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.1!2d23.7957!3d44.3247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47cef40e5b4df3cb%3A0xc62c11bf09d1a7fe!2sUniversitatea+din+Craiova!5e0!3m2!1sen!2sro!4v1"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891!2d23.8005!3d44.3188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4752d6579af38c47%3A0x4188d7788d491349!2sINCSA!5e0!3m2!1sro!2sro!4v1"
                   />
                 </div>
                 <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">

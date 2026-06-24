@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState, useMemo, useEffect } from 'react'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
@@ -51,19 +51,19 @@ function SkeletonCard({ index }) {
   )
 }
 
-// Collect all labs that appear in PROJECTS or have lab.projects entries
+// Collect all labs across all centers
 function buildLabIndex() {
   const map = {}
-  // From projects.js
+  // From projects.js (use the lab display names stored there)
   PROJECTS.forEach(p => {
     if (p.lab?.slug) {
       map[p.lab.slug] = { slug: p.lab.slug, en: p.lab.en, ro: p.lab.ro, centerSlug: p.lab.centerSlug }
     }
   })
-  // From labs.js contracts
+  // All labs from every center — fills in labs that have no project cards yet
   RESEARCH_CENTERS.forEach(center => {
     center.labs.forEach(lab => {
-      if (lab.projects?.length) {
+      if (!map[lab.slug]) {
         map[lab.slug] = { slug: lab.slug, en: lab.en.name, ro: lab.ro.name, centerSlug: center.slug }
       }
     })
@@ -117,8 +117,14 @@ export default function Projects() {
   const { t, i18n } = useTranslation()
   const isRo = i18n.language === 'ro'
   const navigate = useNavigate()
-  const [selectedLab, setSelectedLab] = useState('all')
+  const [searchParams] = useSearchParams()
+  const [selectedLab, setSelectedLab] = useState(() => searchParams.get('lab') || 'all')
   const [contractsExpanded, setContractsExpanded] = useState(false)
+
+  useEffect(() => {
+    const lab = searchParams.get('lab')
+    if (lab) setSelectedLab(lab)
+  }, [searchParams])
 
   const filteredProjects = useMemo(() => {
     if (selectedLab === 'all') return PROJECTS
@@ -181,8 +187,8 @@ export default function Projects() {
 
       {/* Lab filter */}
       <section className="bg-white dark:bg-gray-950 border-b border-slate-100 dark:border-gray-800 sticky top-[64px] z-30">
-        <div className="container-padded py-3 overflow-x-auto">
-          <div className="flex items-center gap-2 min-w-max">
+        <div className="container-padded py-3">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={() => setSelectedLab('all')}
               className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors whitespace-nowrap ${

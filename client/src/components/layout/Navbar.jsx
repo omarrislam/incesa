@@ -174,6 +174,7 @@ const NAV_ITEMS = [
   { key: 'nav.ctt', href: '/ctt' },
   { key: 'nav.partners', href: '/partners' },
   { key: 'nav.news', href: '/news' },
+  { key: 'nav.rooms', href: '/rooms' },
   { key: 'nav.contact', href: '/contact' },
 ]
 
